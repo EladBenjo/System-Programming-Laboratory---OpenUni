@@ -31,11 +31,6 @@ struct number *get_set()
     int arrLength = 1; /* used as a "pointer" , mostly to enlrage */
     int arraySize = 0; /* used as a "pointer" , as actual pointer in the arr */
     struct number *arr = malloc(ENLARGE_SIZE);
-    if (arr == NULL)
-    {
-    	printf("Error: malloc failed to allocate memory \n");
-    	exit(EXIT_FAILURE);
-    }
     int num; /* to store users inputs */
     bool match = false; /* is this num already in the set? */
 
@@ -57,11 +52,6 @@ struct number *get_set()
         {
             arrLength++;
             arr = realloc(arr, arrLength * ENLARGE_SIZE);
-            if (arr == NULL)
-    		{
-    			printf("Error: realloc failed to allocate memory \n");
-    			exit(EXIT_FAILURE);
-   			}
             arr[arraySize].x = num;
             arr[arraySize].last = true;
             if (arraySize != 0) /* case of first number to insert */
